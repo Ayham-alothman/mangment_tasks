@@ -2,10 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
-
+import cookieParser from 'cookie-parser';
 
 
 const app = express();
+app.use(cookieParser());
+
 app.use(bodyParser.json());
 dotenv.config();
 
@@ -17,7 +19,7 @@ app.use(cors(corsOptions))
 
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 
 app.get('/', (req, res) => {
   res.send('Hello, World!');
@@ -25,12 +27,16 @@ app.get('/', (req, res) => {
 
 import Signup from './route/signup.router';
 import Verify from './route/verify.router';
-import Login from './route/login.router'
+import Login from './route/login.router';
+import Search from './route/search.router';
+import Add from './route/add.router';
 
 
 app.use('/signup',Signup);
 app.use('/verify',Verify);
 app.use('/login',Login);
+app.use('/search',Search);
+app.use('/add',Add);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

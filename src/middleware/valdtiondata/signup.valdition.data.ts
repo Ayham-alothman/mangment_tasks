@@ -12,7 +12,7 @@ const SignupValditionData=async (req:Request,res:Response,next:NextFunction)=>{
         if(err.state==403){res.status(403).json(err.message)}
         else if(err.state==400){res.status(400).json(err.message)}
         else{
-            res.status(400).json(`there issue in request`)
+            res.status(403).json(`there issue in request`)
         }
     }
 }

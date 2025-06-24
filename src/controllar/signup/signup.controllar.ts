@@ -4,7 +4,7 @@ import { SingupNewUserModel } from "../../model/signup/signup.newuser.model";
 
 const SignupControlaar= async (req:Request,res:Response)=>{
 
-    try{ console.log(`pass`)
+    try{ 
         const {name,email,password}=req.body;
         await ValditionFormateEmail(email);
         const emaill=await SingupNewUserModel(name,email,password)
