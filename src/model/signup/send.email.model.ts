@@ -20,7 +20,7 @@ const SendEmailLink = async (token: string, email: string) => {
     try {
         // Construct the verification link
         // Ensure process.env.domain is correctly set (e.g., "https://yourdomain.com")
-        const verificationLink = process.env.domain + `/verify/` + `${token}`;
+        const verificationLink = process.env.domain as string +process.env.PORT+ `/verify/` + `${token}`;
 
         const mailOptions = {
             from: '"Tasker" <ayhamzain4@zohomail.com>', // Sender address

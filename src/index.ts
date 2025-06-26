@@ -3,6 +3,13 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import multer from 'multer';
+
+import path from 'path';
+ 
+console.log(path.join(__dirname, 'uploads', 'ayham'))
+
+
 
 
 const app = express();
@@ -17,6 +24,9 @@ var corsOptions = {
 }
 app.use(cors(corsOptions))
 
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+app.use(upload.any());
 
 
 const PORT = process.env.PORT || 4001;

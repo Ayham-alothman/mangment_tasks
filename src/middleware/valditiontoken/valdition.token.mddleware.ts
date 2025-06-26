@@ -8,7 +8,7 @@ const ValditionToken=async (req:Request,res:Response,next:NextFunction)=>{
     
     if(!req.cookies.token){throw {state:403,message:`do't have token in this request`}}
     const token:string=req.cookies.token;
-    const data=decode(token); console.log(data)
+    const data=decode(token); 
     if(data){
         res.locals.tokendata=data
            
