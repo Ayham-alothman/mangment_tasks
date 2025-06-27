@@ -40,6 +40,7 @@ import Verify from './route/verify.router';
 import Login from './route/login.router';
 import Search from './route/search.router';
 import Add from './route/add.router';
+import Project from './route/project.router';
 
 
 app.use('/signup',Signup);
@@ -47,6 +48,7 @@ app.use('/verify',Verify);
 app.use('/login',Login);
 app.use('/search',Search);
 app.use('/add',Add);
+app.use('/project',Project);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

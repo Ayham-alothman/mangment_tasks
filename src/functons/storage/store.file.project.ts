@@ -3,15 +3,15 @@ import path from 'path';
 
 
 const StoreFileProject=async (fileName:string,data:Buffer)=>{
-    try{
+    try{console.log(fileName);
         const uploadPath = 
-        path.join(__dirname, '../../.././public/uploads/projects', fileName);
+        path.join(__dirname, '../../.././public/uploads/projects', fileName.toString());
 
         const pathDirUpload=path.join(__dirname, '../../.././public/uploads/');
         const pathDirTask=path.join(__dirname, '../../.././public/uploads/projects');
 
         await fs.mkdir(pathDirUpload, { recursive: true });
-        await fs.mkdir(pathDirTask, { recursive: true });
+        await fs.mkdir(pathDirTask, { recursive: true });``
         await fs.writeFile(uploadPath, data);
 
     }

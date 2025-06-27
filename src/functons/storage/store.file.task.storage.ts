@@ -5,7 +5,7 @@ import path from 'path';
 const StoreFileTask=async (fileName:string,data:Buffer)=>{
     try{
         const uploadPath = 
-        path.join(__dirname, '../../.././public/uploads/tasks', fileName);
+        path.join(__dirname, '../../.././public/uploads/tasks', fileName.toString());
 
         const pathDirUpload=path.join(__dirname, '../../.././public/uploads/');
         const pathDirTask=path.join(__dirname, '../../.././public/uploads/tasks');

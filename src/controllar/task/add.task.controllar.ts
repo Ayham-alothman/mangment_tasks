@@ -19,7 +19,7 @@ const AddTaskControllar=async (req:Request,res:Response,next:NextFunction)=>{
                 // add task to user
                 const AllFiels:any=req.files;
                 for(let file of AllFiels){
-                    if(file.fieldname==`tasks[${i}][descT]`){
+                    if(file.fieldname==`tasks[${i}][descFileT]`){
                        await StoreFileTask(newIdTask as string,file.buffer);
                        break;
                     }
@@ -32,6 +32,7 @@ const AddTaskControllar=async (req:Request,res:Response,next:NextFunction)=>{
                 const {nameTask,typeTask,overviewTask,ownUser}=Tasks[i];
                 const newIdTask=await StoreTaskModel(nameTask,typeTask,overviewTask,ownUser);
                 // add task to db
+                idsTask.push(newIdTask);
                 await AddTaskToUser(newIdTask as string,ownUser);
                 
             }
@@ -39,7 +40,7 @@ const AddTaskControllar=async (req:Request,res:Response,next:NextFunction)=>{
         res.locals.idsTask=idsTask;
         next();
     }
-    catch(err){
+    catch(err){ console.log(err)
         res.status(403).json(`there issue in request`)
     }
 }
