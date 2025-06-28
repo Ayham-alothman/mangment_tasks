@@ -41,6 +41,8 @@ import Login from './route/login.router';
 import Search from './route/search.router';
 import Add from './route/add.router';
 import Project from './route/project.router';
+import Task from './route/task,router';
+import Comment from './route/comment.router'
 
 
 app.use('/signup',Signup);
@@ -49,6 +51,8 @@ app.use('/login',Login);
 app.use('/search',Search);
 app.use('/add',Add);
 app.use('/project',Project);
+app.use('/task',Task);
+app.use('/comment',Comment);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

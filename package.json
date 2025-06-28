@@ -7,7 +7,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "ts-node src/index.ts",
-    "test": "ts-node ./src/functons/storage/store.file.task.storage.ts"
+    "test": "ts-node ./src/model/comment/addnew.comment.model.ts"
   },
   "author": "AyhamAluhman",
   "license": "ISC",

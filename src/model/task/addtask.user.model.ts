@@ -4,6 +4,7 @@ import { User } from "../schema/user.schema";
 
 const AddTaskToUser=async (idTask:string,ownidTask:string)=>{
     try{
+        
         await connect(process.env.MONGODB_URI as string);
         await User.findByIdAndUpdate(ownidTask,
             {$push:{tasks:idTask}}

@@ -4,6 +4,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 interface Task extends Document {
     nameTask: string;
     ownUser: string;
+    leaderProject:string;
     overviewTask: string;
     typeTask: string;
     state?: number; // Optional with default value
@@ -32,6 +33,11 @@ const TaskSchema: Schema = new Schema({
         type: Number,
         default: 1, // Default value for state
         required: false, // Not required
+    },
+    leaderProject: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User', // Reference to the User model
+        required: true,
     },
     
 });

@@ -11,7 +11,7 @@ const AddTaskControllar=async (req:Request,res:Response,next:NextFunction)=>{
         for(let i=0;i<Tasks.length;i++){
             if(Tasks[i].docsT){
                 const {nameTask,typeTask,overviewTask,ownUser}=Tasks[i];
-                const newIdTask=await StoreTaskModel(nameTask,typeTask,overviewTask,ownUser);
+                const newIdTask=await StoreTaskModel(nameTask,typeTask,overviewTask,ownUser,res.locals.tokendata.id);
                 idsTask.push(newIdTask);
                 // add task to db
                 await AddTaskToUser(newIdTask as string,ownUser)
@@ -30,7 +30,7 @@ const AddTaskControllar=async (req:Request,res:Response,next:NextFunction)=>{
             }
             else{
                 const {nameTask,typeTask,overviewTask,ownUser}=Tasks[i];
-                const newIdTask=await StoreTaskModel(nameTask,typeTask,overviewTask,ownUser);
+                const newIdTask=await StoreTaskModel(nameTask,typeTask,overviewTask,ownUser,res.locals.tokendata.id);
                 // add task to db
                 idsTask.push(newIdTask);
                 await AddTaskToUser(newIdTask as string,ownUser);
@@ -40,7 +40,7 @@ const AddTaskControllar=async (req:Request,res:Response,next:NextFunction)=>{
         res.locals.idsTask=idsTask;
         next();
     }
-    catch(err){ console.log(err)
+    catch(err){ 
         res.status(403).json(`there issue in request`)
     }
 }
