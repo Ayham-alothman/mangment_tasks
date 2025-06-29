@@ -5,12 +5,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import multer from 'multer';
 
-import path from 'path';
  
-console.log(path.join(__dirname, 'uploads', 'ayham'))
-
-
-
 
 const app = express();
 app.use(cookieParser());
