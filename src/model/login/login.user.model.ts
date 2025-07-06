@@ -22,6 +22,7 @@ const LoginUserModel = async (email: string, password: string) => {
       id: ScanEmail._id,
       email: ScanEmail.email,
       name: ScanEmail.name,
+      friend_favo:ScanEmail.favorite_user,
       tasks: ScanEmail.tasks,
     };
   } catch (err) {
