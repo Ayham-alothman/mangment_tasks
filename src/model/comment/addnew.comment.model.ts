@@ -16,7 +16,7 @@ const StoreNewCommentModel=async(idTask:string,ownComment:string,dataComment:str
             throw {state:403,message:`not have permision to write this comment`};
             
         }
-        throw {state:403,message:`not found ths idd task`}
+        throw {state:403,message:`not found ths id task`}
         
 
     }

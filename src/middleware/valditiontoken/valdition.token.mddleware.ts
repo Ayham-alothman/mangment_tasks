@@ -2,7 +2,7 @@ import {Request,Response, NextFunction } from "express";
 import {decode} from 'jsonwebtoken'
 
 
-const ValditionToken=async (req:Request,res:Response,next:NextFunction)=>{
+const   ValditionToken=async (req:Request,res:Response,next:NextFunction)=>{
  try{
    
     

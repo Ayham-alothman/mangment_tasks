@@ -8,7 +8,7 @@ const AddFavoriteModel=async (idOwn:string,idNew:string)=>{
         const DataOwnUser=await User.findById(idOwn);
         const DataNewUser=await User.findById(idNew);
         if(DataNewUser==null||DataOwnUser==null){
-            throw {state:403 ,message :`there miss data`}
+            throw {state:400 ,message :`there miss data`}
         }
         for(let user of DataOwnUser.favorite_user){
           if(user.name==DataNewUser.name){throw{state:403,message:`the name found before`}}

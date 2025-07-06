@@ -11,7 +11,7 @@ const LoginControllar=async (req:Request,res:Response)=>{
         const token=await GenerateToken(data);
         
        // res.status(200).cookie('token',token).end();
-        res.status(200).json(token);
+        res.status(200).json({token:token});
     }
     catch(err:any){
         if(err.state==403){res.status(403).json(err.message)}
